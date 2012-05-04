@@ -1,5 +1,5 @@
 /**
- * jQuery Countdown plugin v@VERSION.
+ * jQuery Countdown plugin v1.0.0.
  *
  * Copyright (c) 2012. Dmitriy V. Ibragimov
  *
@@ -9,8 +9,6 @@
  *
  * Depends:
  *     jquery.js
- *
- * Date: @DATE
  */
 (function($) {
 
