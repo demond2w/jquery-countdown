@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery Countdown plugin demos</title>
+<script type="text/javascript" src="../external/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../src/jquery.countdown.js"></script>
+<script type="text/javascript">
+$(function () {
+   $( "#countdown-1" ).countdown({
+       autoStart: false,
+       finish: (new Date( (new Date()).getTime() + 86400*24*1000 )).toString(),
+       format: $.countdown.formats.HMS
+   });
+
+   $( "#countdown-2" ).countdown({
+       autoStart: true,
+       finish: '12/31/2013 00:00:00'
+   });
+
+   $( "a.start, a.stop" ).click(function (event) {
+       event.preventDefault();
+
+       if ( $(this).hasClass("start") ) {
+           $( this ).parents(".countdown:first").countdown("start");
+           $(this).removeClass("start").addClass("stop").text("Stop");
+       } else {
+           $( this ).parents(".countdown:first").countdown("stop");
+           $(this).removeClass("stop").addClass("start").text("Start");
+       }
+   });
+});
+</script>
+<style type="text/css">
+table {border-collapse: collapse;}
+th, td {padding: 4px; border: 1px solid #eee;}
+td {text-align: right;}
+</style>
+</head>
+<body>
+
+<table>
+	<tr>
+	    <th>Name</th>
+	    <th>Days</th>
+	    <th>Hours</th>
+	    <th>Minutes</th>
+	    <th>Seconds</th>
+	    <th></th>
+	</tr>
+	<tr id="countdown-1" class="countdown">
+	    <td>Countdown 1</td>
+	    <td>--</td>
+	    <td class="hours"></td>
+	    <td class="minutes"></td>
+	    <td class="seconds"></td>
+	    <td><a href="#" class="start">Start</a></td>
+	</tr>
+	<tr id="countdown-2" class="countdown">
+	    <td>Countdown 2</td>
+	    <td class="days"></td>
+	    <td class="hours"></td>
+	    <td class="minutes"></td>
+	    <td class="seconds"></td>
+	    <td><a href="#" class="stop">Stop</a></td>
+	</tr>
+</table>
+
+</body>
+</html>
